@@ -8,7 +8,7 @@ Bandwidth, normalized Power Spectrum, and normalized Power-over-Time are
 sufficient to guess a modulation or to narrow the options down enough to
 manually check with good-enough accuracy.
 
-Initial data: [data.tsv](data.tsv), mirrored on a [https://docs.google.com/spreadsheets/d/1MfwNuRVr6lvTZW3s4uZcxiTbFt6OJsu6mllWj0BigQQ/edit#gid=0](Google Sheet).
+Initial data: [data.tsv](data.tsv), mirrored on a [Google Sheets](https://docs.google.com/spreadsheets/d/1MfwNuRVr6lvTZW3s4uZcxiTbFt6OJsu6mllWj0BigQQ)
 
 ## Procedure 
 
