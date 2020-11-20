@@ -24,6 +24,10 @@ for i in range(-3,4):
 
 args = parser.parse_args()
 
+# Filter by the bandwidth
+# TODO: perhaps we should normalize the bandwidth inputed
+#       and maybe we'd want to grab a bucket above or below as well
+#       Since small errors could filter out the canidate?
 possible_modulations = reference.loc[reference['Bandwidth (50Hz Bucket)'] == args.bandwidth]
 
 measured_bins = [
@@ -35,9 +39,13 @@ measured_bins = [
         args.spectral_bin_5,
         args.spectral_bin_6,
 ]
+
+# Subtract the reference from the given spectrum and compute the
+# RMS of the difference. Lower values mean a better match.
 ref_bins = possible_modulations.loc[:,'Freq Bin -3':'Freq Bin +3']
 delta_bins = ref_bins - measured_bins
 delta_rms = sqrt(mean(square(delta_bins.T)))
-best_modulation_idx = delta_rms.idxmin()
 
+# Consider the smallest RMS to be the answer.
+best_modulation_idx = delta_rms.idxmin()
 print(reference.loc[best_modulation_idx, 'Mode'])
